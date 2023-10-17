@@ -72,45 +72,4 @@ let employee = [{
        }
 
   
-       const itemsPerPage = 15
-       let currentPage = 1
-
-       function displayTableData(page) {
-        const table = document.getElementById('myTable').getElementsByTagName('tbody')[0];
-        table.innerHTML = '';  // Clear previous data
-  
-        const startIndex = (page - 1) * itemsPerPage;
-        const endIndex = startIndex + itemsPerPage;
-  
-        for (let i = startIndex; i < endIndex && i < employee.length; i++) {
-          const row = table.insertRow();
-          const cell1 = row.insertCell(0);
-          const cell2 = row.insertCell(1);
-          cell1.textContent = employee[i].id;
-          cell2.textContent = employee[i].name;
-        }
-      }
-  
-
-       function updatePagination() {
-        const paginationContainer = document.getElementById('pagination');
-        paginationContainer.innerHTML = '';
-   
-        const totalPages = Math.ceil(employee.length / itemsPerPage);
-   
-        for (let i = 1; i <= totalPages; i++) {
-          const pageItem = document.createElement('li');
-          const pageLink = document.createElement('a');
-          pageLink.href = '#';
-          pageLink.textContent = i;
-          pageLink.addEventListener('click', (event) => {
-            event.preventDefault();
-            currentPage = i;
-            displayTableData(currentPage);
-            updatePagination();
-          });
-   
-          pageItem.appendChild(pageLink);
-          paginationContainer.appendChild(pageItem);
-        }
-      }
+    
